@@ -21,39 +21,42 @@ let card = document.querySelector(".cards-container")
 axios
     .get("https://lambda-times-backend.herokuapp.com/articles")
     .then(response => {
-        console.log(response.data.articles.bootstrap)
-        const newData = response.data.articles.bootstrap;
-        newData.forEach(data =>{
-            console.log(newData)
-            card.appendChild(myArticle(newData))
+        console.log(response.data.articles)
+        const newData = response.data.articles;
+        const myData = Object.values(newData)
+        myData.forEach(data =>{
+            console.log(myData)
+
+            card.appendChild(myArticle(data))
         })
     })
     .catch(error =>{
         console.log("Error", error)
     })
 
-    function myArticle(newData){
+    function myArticle(data){
         const card = document.createElement("div")
         card.classList.add("card")
 
         const headline = document.createElement("div")
         headline.classList.add("headline")
-        headline.textContent = newData.headline;
+        headline.textContent = `${data.headline}`;
         card.appendChild(headline)
 
         const author = document.createElement("div")
         author.classList.add("author")
+        headline.appendChild(author)
         
         const placeHolder = document.createElement("div")
         placeHolder.classList.add("img-container")
         author.appendChild(placeHolder)
         
         const pic = document.createElement("img")
-        pic.setAttribute("src", newData.authorPhoto)
+        pic.src = data.authorPhoto;
         author.appendChild(pic)
 
         const name = document.createElement("span")
-        name.textContent = `By ${newData.authorName}`;
+        name.textContent = `By ${data.authorName}`;
         author.appendChild(name)
 
         card.appendChild(author)
