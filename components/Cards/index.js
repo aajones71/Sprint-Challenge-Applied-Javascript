@@ -47,7 +47,7 @@ axios
 
         const author = document.createElement("div")
         author.classList.add("author")
-        headline.appendChild(author)
+        card.appendChild(author)
         
         const placeHolder = document.createElement("div")
         placeHolder.classList.add("img-container")
@@ -55,13 +55,26 @@ axios
         
         const pic = document.createElement("img")
         pic.src = data1.authorPhoto;
-        author.appendChild(pic)
+        placeHolder.appendChild(pic)
 
         const name = document.createElement("span")
         name.textContent = `By ${data1.authorName}`;
         author.appendChild(name)
 
-       
-
         return card;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

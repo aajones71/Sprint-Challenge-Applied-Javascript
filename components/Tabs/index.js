@@ -26,9 +26,7 @@ axios
         const tabs = document.createElement("div")
         tabs.classList.add("tab")
         tabs.textContent = data;
-        
-        
-            
+               
         return tabs;
     }
    
