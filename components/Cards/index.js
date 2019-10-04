@@ -25,22 +25,24 @@ axios
         const newData = response.data.articles;
         const myData = Object.values(newData)
         myData.forEach(data =>{
-            console.log(myData)
-
-            card.appendChild(myArticle(data))
+            console.log(`myData`, data)
+                data.forEach( data1 => {
+                console.log(`forEach2`,data1)
+               card.appendChild(myArticle(data1))
+            })
         })
     })
     .catch(error =>{
         console.log("Error", error)
     })
 
-    function myArticle(data){
+    function myArticle(data1){
         const card = document.createElement("div")
         card.classList.add("card")
 
         const headline = document.createElement("div")
         headline.classList.add("headline")
-        headline.textContent = `${data.headline}`;
+        headline.textContent = `${data1.headline}`;
         card.appendChild(headline)
 
         const author = document.createElement("div")
@@ -52,14 +54,14 @@ axios
         author.appendChild(placeHolder)
         
         const pic = document.createElement("img")
-        pic.src = data.authorPhoto;
+        pic.src = data1.authorPhoto;
         author.appendChild(pic)
 
         const name = document.createElement("span")
-        name.textContent = `By ${data.authorName}`;
+        name.textContent = `By ${data1.authorName}`;
         author.appendChild(name)
 
-        card.appendChild(author)
+       
 
         return card;
     }
