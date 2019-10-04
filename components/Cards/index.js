@@ -17,14 +17,14 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
-let card = document.querySelector("card")
+let card = document.querySelector(".cards-container")
 axios
     .get("https://lambda-times-backend.herokuapp.com/articles")
     .then(response => {
         console.log(response.data.articles.bootstrap)
-        response.data.articles.bootstrap.forEach(data =>{
-           const newData = response.data.articles.bootstrap;
-           console.log(newData)
+        const newData = response.data.articles.bootstrap;
+        newData.forEach(data =>{
+            console.log(newData)
             card.appendChild(myArticle(newData))
         })
     })
@@ -49,7 +49,7 @@ axios
         author.appendChild(placeHolder)
         
         const pic = document.createElement("img")
-        pic.setAttribute("src", date.articles.bootstrap[0].authorPhoto)
+        pic.setAttribute("src", newData.authorPhoto)
         author.appendChild(pic)
 
         const name = document.createElement("span")
