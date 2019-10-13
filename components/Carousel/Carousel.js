@@ -17,3 +17,14 @@
     <div class="right-button"> > </div>
   </div>
 */
+function carouselCreator() {
+  const 
+  round = document.createElement('div'),
+  left = document.createElement('div'),
+  mountain = document.createElement('img'),
+  couputer = document.createElement('img'),
+  tree = document.createElement('img'), 
+  tablesTurning = document.createElement('img');
+
+  
+}
